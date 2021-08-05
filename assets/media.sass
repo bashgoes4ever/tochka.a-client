@@ -1,0 +1,775 @@
+=flex-between()
+  display: -webkit-flex
+  display: -moz-flex
+  display: -ms-flex
+  display: -o-flex
+  display: flex
+  flex-flow: row wrap
+  justify-content: space-between
+
+=center()
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+@media only screen and (max-width : 1170px)
+  html, body
+    font-size: 14px
+  .container
+    min-width: 320px
+    width: 100%
+    padding: 0 20px
+  header
+    padding: 24px 0
+    .logo-m img
+      height: 45px
+    .icon
+      width: 40px
+      height: 40px
+      background-color: #fff
+      position: relative
+      border-radius: 50%
+      cursor: pointer
+      display: block
+      margin-right: 8px
+      &:last-child
+        margin-right: 0
+      svg
+        +center()
+    .basket-icon span
+      width: 20px
+      height: 20px
+      top: -6px
+      right: -5px
+      padding-top: 2px
+  header.active
+    background-color: #f7fafc
+  .mobile-menu
+    position: fixed
+    top: 97px
+    bottom: 0
+    right: 0
+    left: 0
+    background-color: #f7fafc
+    overflow-y: scroll
+    &::-webkit-scrollbar
+      width: 0
+    .menus
+      padding-bottom: 40px
+    .menu-tabs
+      margin-bottom: 16px
+      border-radius: 0
+    .menu-tab
+      flex: 1 1 0
+      width: 50%
+      background-color: #e4eaef
+      display: flex
+      flex-flow: row wrap
+      align-items: center
+      height: 72px
+      justify-content: center
+      span
+        text-transform: uppercase
+        font-weight: 700
+    .menu-tab.active
+      box-shadow: inset 0px -2px 6px rgba(255, 255, 255, 0.25)
+      background: linear-gradient(180deg, #20B4C8 0%, #01878C 100%)
+      span
+        color: #fff
+    .menu-item
+      display: block
+      font-size: 0.85rem
+      text-align: center
+      padding: 24px 0
+      border-bottom: 1px solid #E4EBEF
+      &:last-child
+        border-bottom: none
+      svg
+        margin-left: 5px
+  .dropdown-menu
+    padding-top: 16px
+    position: static
+    transform: none
+    display: none
+    background-color: #f7fafc
+  .dropdown-item
+    font-weight: normal
+    color: #7e8989
+    margin-bottom: 8px
+    text-transform: none
+  .menu-item:hover
+    .dropdown-menu
+      display: block
+    .current
+      color: #02979d
+      svg
+        transform: rotate(-90deg)
+      svg path
+        stroke: #02979d
+  .block1
+    padding-top: 52px
+    padding-bottom: 350px
+    .bg
+      top: auto
+      bottom: 0
+      width: 100%
+      min-width: 320px
+    .bg1
+      position: absolute
+      left: 50%
+      transform: translateX(-50%)
+      bottom: 30px
+    .bg2
+      position: absolute
+      left: 50%
+      transform: translateX(-50%)
+      bottom: 0
+    h1
+      margin-bottom: 24px
+    button
+      margin: 0 auto
+  h1
+    text-align: center
+    font-size: 2rem
+  .block2
+    padding-top: 50px
+    padding-bottom: 90px
+    .slider-wrapper
+      display: none
+    .slider
+      width: 100%
+      height: auto
+      position: static !important
+      order: 3
+    p
+      order: 4
+    .text-wrapper
+      width: 100%
+      flex: auto
+      margin-left: 0
+      min-height: 0
+      display: flex
+      flex-flow: column wrap
+    .title
+      text-align: center
+      margin-bottom: 32px
+      order: 1
+    .slick-slide
+      opacity: 1
+      width: auto
+      margin-right: 0 !important
+    .slick-list
+      margin-right: 0 !important
+    .img
+      height: 180px
+      border-radius: 16px
+    .slider-btn
+      bottom: auto
+      top: 65px
+    .prev
+      left: 16px
+    .next
+      right: 16px
+      left: auto
+    .slider-opts
+      order: 2
+      position: relative
+  .slider-btn
+    width: 40px
+    height: 40px
+  .section__title
+    font-size: 1.8rem
+  .block3
+    padding-bottom: 145px
+    h2
+      margin-bottom: 32px
+    .bg
+      width: 100%
+      min-width: 1000px
+    .block3__flex
+      width: 100%
+    .item
+      width: 100% !important
+      height: 100px !important
+      margin-bottom: 24px
+      margin-right: 0
+      padding-top: 32px !important
+      padding-left: 24px !important
+      img
+        max-width: 100%
+      .title
+        font-size: 1.5rem !important
+        text-align: left !important
+        color: #02979d
+        text-decoration: underline
+        svg
+          display: inline-block
+          position: relative
+          top: -1px
+          margin-left: 5px
+      .link
+        display: none
+  .block4
+    padding-top: 70px
+    padding-bottom: 90px
+    .controls
+      position: absolute
+      width: 55px
+      height: 14px
+      left: 24px
+      bottom: -4px
+      display: flex
+      flex-flow: row wrap
+      justify-content: space-between
+    .slider
+      margin-top: 32px
+    .slick-list
+      overflow: visible !important
+    .slick-slide
+      opacity: 0
+      transition: all .1s
+    .slick-slide.slick-current
+      opacity: 1
+    .slick-dots
+      width: calc(100% - 100px)
+      height: 3px
+      background-color: #f0f2f4
+      margin-top: 42px
+      margin-left: auto
+      margin-right: 0
+      display: flex !important
+      flex-flow: row wrap
+      justify-content: space-between
+      button
+        display: none
+      li
+        flex: 1 1 0
+        height: 100%
+      li.slick-active
+        background-color: #33ae6f
+  .blog-card
+    height: 421px
+    box-shadow: 0px 4px 56px rgba(11, 29, 39, 0.08)
+    .img
+      height: 165px
+    .title
+      margin-top: 24px
+      padding: 0 24px
+      margin-bottom: 16px
+    p
+      padding: 0 24px
+    button
+      left: 24px
+      bottom: 24px
+      width: calc(100% - 48px)
+  .block5
+    padding-bottom: 390px
+    .section__title
+      text-align: center
+    .text-wrapper
+      padding-left: 0
+    .bg
+      width: 100%
+      min-width: 320px
+    .bg2
+      position: absolute
+      left: 50%
+      transform: translateX(-50%)
+      bottom: 20px
+  .block6
+    padding-top: 70px
+    padding-bottom: 90px
+    .bg1, .bg2
+      display: none
+  .block6__flex
+    margin-top: 32px
+    width: 100%
+  .category-card
+    width: 100% !important
+    margin-right: 0
+    margin-bottom: 16px
+    height: 100px
+    padding: 26px 24px
+    img
+      max-width: 50%
+  .block7
+    padding-bottom: 76px
+    .img
+      height: 276px
+    .slider
+      width: 139px
+      margin: 48px auto 0 auto
+    .slick-list
+      padding: 0 !important
+    .phone
+      width: 230px
+      top: 89px
+    .slider-btn
+      top: 220px
+    .slider-btn.prev
+      left: calc(50% - 135px)
+      transform: translateX(-50%)
+    .slider-btn.next
+      right: calc(50% - 135px)
+      transform: translateX(50%)
+  .block7 .slick-slide > div
+    margin: 0
+  .consultation
+    padding-bottom: 140px
+    .container
+      z-index: 3
+    &::after
+      content: ''
+      width: 100%
+      height: 100px
+      position: absolute
+      background-color: #f4f9fb
+      left: 0
+      right: 0
+      bottom: 0
+    .bg
+      width: 100%
+      min-width: 320px
+      z-index: 2
+    .text-wrapper
+      width: 100%
+      padding-top: 0
+      .title
+        text-align: center
+      p
+        text-align: center
+    form
+      width: 100%
+      padding: 0
+      margin-top: 32px
+      box-shadow: none
+      background-color: transparent
+      .title
+        display: none
+  footer
+    padding-top: 14px
+    padding-bottom: 0
+    border-bottom: none
+  .footer__flex
+    justify-content: center
+    .logo
+      order: 1
+    .menu
+      order: 3
+      width: 100%
+      .col
+        width: 100%
+        margin: 0
+        padding: 16px 0
+        border-bottom: 1px solid #E6EAEE
+        &:hover
+          ul
+            display: block
+        &:first-child
+          padding-top: 0
+        ul
+          display: none
+          padding-bottom: 8px
+          margin-top: 8px
+        .head
+          position: relative
+          margin-bottom: 0
+          svg
+            display: block
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+            right: 0
+    & > .col
+      order: 2
+      width: 100%
+      margin-top: 24px
+      margin-bottom: 32px
+      text-align: center
+  .socials-wrapper
+    padding-top: 40px
+    .left
+      width: 100%
+      justify-content: space-between
+      margin-bottom: 40px
+    .right
+      width: 100%
+    .item
+      width: 40px
+      height: 40px
+    .group
+      margin-right: 0
+    .title
+      font-size: 1.1rem
+      text-align: center
+    input
+      width: 100%
+      margin-bottom: 8px
+      margin-right: 0
+    button
+      width: 100%
+  .agreements-wrapper
+    .flex-between, .flex-start
+      justify-content: center
+    a
+      margin-right: 0
+      margin-bottom: 8px
+    .flex-start
+      flex: 0 1 100%
+      a
+        flex: 0 1 100%
+        width: fit-content
+        text-align: center
+  .breadcrumbs-wrapper
+    padding: 20px 0
+  .gallery-wrapper
+    padding-top: 40px
+    padding-bottom: 60px
+  .tabs
+    display: block
+    margin-bottom: 40px
+    width: calc(100% + 20px)
+    border-radius: 0
+    border: none
+    .slick-slide
+      width: 170px
+      margin-right: 16px
+    .slick-list
+      margin-right: -8px
+    .tab
+      border-radius: 16px
+      display: flex !important
+      border: 1px solid #E5EBF0
+  .gallery-items
+    display: block
+  .gallery-item
+    display: block
+    width: 100%
+    height: 200px
+    margin-bottom: 20px
+  .shop-block
+    padding-top: 60px
+    padding-bottom: 70px
+    .tabs
+      margin: 40px 0
+    .filters
+      width: 100%
+      margin-right: 0
+      margin-bottom: 30px
+      .title svg
+        display: block
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        right: 0
+      &:hover
+        .filters-list
+          display: block
+    .filters-list
+      display: none
+  .shop-block .products-wrapper
+    width: 100%
+  .shop-block .products
+    grid-template-columns: 1fr 1fr
+    grid-gap: 12px
+  .product-card
+    height: 365px
+    border-radius: 8px
+  .product-card .img
+    height: 200px
+    margin-bottom: 12px
+  .product-card .btn
+    width: 120px
+  .product-card .name
+    font-size: .8rem
+    line-height: 1.5
+    margin-bottom: 5px
+  .product-card .price-text
+    width: 100%
+    margin-right: 0
+    text-align: center
+  .product-card .btn-secondary
+    bottom: 10px
+    width: calc(100% - 20px)
+    left: 10px
+    height: 50px
+  .pagination-flex
+    margin-top: 30px
+  .pgn-btn
+    font-size: .7rem
+    height: 30px
+    line-height: 29px
+    width: 50px
+    margin-right: 4px
+  .pgn-btn.number
+    width: 30px
+  .shop-block .products-wrapper h2
+    margin-top: 50px
+  .detail-product__slider-m
+    width: 100%
+    height: 300px
+    margin: 20px 0
+    .img
+      position: relative
+      height: 300px
+      img
+        +center()
+        width: 90%
+        height: 90%
+        object-fit: contain
+        object-position: 50% 50%
+  .product-detail .right
+    width: 100%
+    .quantity-wrapper
+      margin: 0 auto
+  .product-detail .left
+    width: calc(100% + 40px)
+    margin-left: -20px
+  .product-detail .section__title
+    text-align: center
+    margin-bottom: 0
+  .product-detail
+    .left
+      height: auto
+      margin-right: 0
+      position: relative
+    .carousel-btn
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+    .prev
+      left: 10px
+    .next
+      right: 10px
+  .product-detail .btn
+    width: 100%
+  .product-detail .price-wrapper
+    justify-content: center
+  .product-detail .stock
+    text-align: center
+    padding-left: 0
+    &::after
+      display: none
+  .product-detail
+    padding-top: 40px
+    padding-bottom: 80px
+  .similar-products .section__title
+    margin-bottom: 25px
+    text-align: center
+  .product-description .table
+    width: 100%
+  .similar-products .grid
+    grid-template-columns: 1fr 1fr
+    grid-gap: 12px
+  .similar-products
+    padding-bottom: 60px
+  .product-description .col2
+    top: -3px
+  .basket
+    padding-top: 40px
+    padding-bottom: 70px
+    .products
+      width: calc(100% + 40px)
+      margin-left: -20px
+  .basket-item
+    padding: 0 20px 30px 20px
+    margin-bottom: 30px
+    .price-wrapper
+      margin-bottom: 10px
+  .basket-item .img
+    width: 90px
+    height: 90px
+    margin-right: 20px
+  .basket-item__right
+    flex: 1 1 0
+  .total-price
+    font-size: 1.5rem
+  .total-price .old-price
+    font-size: 1.2rem
+    margin-right: 10px
+    top: -3px
+  .basket .left
+    flex: auto
+    width: 100%
+  .basket .right
+    margin-top: 30px
+    width: calc(100% + 40px)
+    margin-left: -20px
+    padding: 20px 20px 0 20px
+    border-top: 1px solid #CFD5D9
+  .basket-flex
+    display: block
+  .tours-page
+    padding-top: 40px
+    padding-bottom: 80px
+    .grid
+      margin-top: 40px
+      grid-template-columns: 1fr
+    .blog-card
+      width: 100%
+      box-shadow: 0px 4px 56px rgba(11, 29, 39, 0.08)
+  .tour-info
+    margin-top: 40px
+    img
+      max-width: 40%
+      max-height: 80%
+    .item
+      width: 100%
+      margin-bottom: 8px
+      &:last-child
+        margin-bottom: 0
+  .tour-detail-block1
+    padding-bottom: 0
+    .bg
+      bottom: 23px
+  .tour-block2
+    padding-top: 80px
+    padding-bottom: 60px
+    .carousel-btn
+      display: none
+    .tabs
+      flex: auto
+      margin: 0
+      width: 100%
+      .slick-slide > div
+        margin: 0
+      .slick-list
+        margin: 0 !important
+    .tabs-wrapper
+      margin: 40px 0 30px 0
+      width: calc(100% + 20px)
+  .tour-block2 .carousel-wrapper
+    width: 100%
+  .tour-block2 .img
+    width: 100%
+    height: 200px
+    margin-right: 0
+  .tour-block2 .item
+    width: 100%
+    padding: 16px
+  .tour-block3 p
+    padding: 0
+  .image-carousel-wrapper .carousel
+    flex: auto
+    width: 100%
+  .image-carousel-wrapper
+    position: relative
+    width: calc(100% + 40px)
+    margin-left: -20px
+    .carousel-btn
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+      z-index: 2
+    .prev
+      left: 20px
+    .next
+      right: 20px
+  .image-carousel-wrapper .img
+    border-radius: 0
+  .carousel-btn
+    width: 40px
+    height: 40px
+  .tour-block3
+    padding-bottom: 60px
+  .tour-block4
+    padding-top: 60px
+  .tour-block5
+    padding: 60px 0
+    .video
+      width: calc(100% + 40px)
+      margin-left: -20px
+      height: 250px
+      border-radius: 0
+    .play
+      width: 60px
+      height: 60px
+  .tour-block6
+    padding-top: 0
+    .image-carousel-wrapper .img img
+      width: 90%
+      height: 90%
+      object-fit: contain
+      object-position: 50% 50%
+  .tour-block7
+    padding: 60px 0
+    .grid
+      grid-template-columns: 1fr
+  .guide-card
+    padding: 16px
+    .img
+      width: 100%
+      height: 200px
+    .text-wrapper
+      width: 100%
+      flex: auto
+      padding: 0
+      margin-top: 20px
+  .tour-block8
+    padding: 60px 0
+    .columns
+      padding: 0
+      columns: auto
+  .faq-item
+    width: 100%
+    margin-bottom: 16px
+  .blog-article
+    order: 2
+    width: 100%
+    .blog-img
+      width: calc(100% + 40px)
+      margin-left: -20px
+      border-radius: 0
+    h2
+      margin-top: 40px
+  .blog-menu
+    order: 1
+    width: calc(100% + 40px)
+    margin-left: -20px
+    flex: 1 0 auto
+    padding: 20px
+  .blog-articles
+    .slick-slide
+      width: 300px
+      & > div
+        margin: 0 8px
+    .slick-list
+      overflow: visible !important
+      margin-left: -8px !important
+  .contacts-block1
+    padding-top: 40px
+    padding-bottom: 50px
+    h2
+      text-align: center
+    .img
+      display: none
+  .contacts-grid
+    grid-template-columns: 1fr
+  .map
+    height: 300px
+  .contacts-socials
+    justify-content: space-between
+    .item
+      width: 40px
+      height: 40px
+    .group
+      margin-right: 0
+    .title
+      font-size: 1.1rem
+      text-align: center
+  .block1-type3
+    padding-bottom: 240px
+  .block1-auto
+    .bg2
+      left: 65%
+  .block1-bicycle
+    .bg2
+      bottom: -40px
+  .reviews-page
+    padding-top: 40px
+  .notifications-wrapper
+    top: 10px
+    right: 10px
+    left: 10px
+    width: calc(100% - 20px)
