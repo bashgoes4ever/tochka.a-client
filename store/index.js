@@ -19,7 +19,7 @@ export const actions = {
     if (process.server) {
       const protocol = req.connection.encrypted ? 'https' : 'http'
       // commit("env/setDomain", `${protocol}://${req.headers.host}`)
-      commit("env/setDomain", `${protocol}://localhost:1234`)
+      commit("env/setDomain", `${protocol}://${req.headers.host}`)
     }
   }
 }
