@@ -11,7 +11,7 @@
           active-class="active"
           v-for="cat in $store.getters['products/categories']"
           :key="cat.id"
-          :to="`/${category}/${cat.slug}`"
+          :to="`/${category}/${cat.slug}#shop`"
         >
           <span>{{ cat.name }}</span>
         </NuxtLink>

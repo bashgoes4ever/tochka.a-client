@@ -13,6 +13,7 @@
     </section>
     <Block2/>
     <Block3/>
+    <Block6/>
     <Block4/>
     <section class="block5">
       <client-only>
@@ -30,7 +31,6 @@
         </div>
       </div>
     </section>
-    <Block6/>
     <Block7/>
     <ConsultationBlock has-icon="true" type="Подбор инвентаря (главная)">
       <template v-slot:title>Не знаете <span>как правильно подобрать инвентарь</span> и не ошибиться при выборе ?

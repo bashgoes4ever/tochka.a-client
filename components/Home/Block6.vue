@@ -2,8 +2,7 @@
   <section class="block6">
     <div class="container">
       <img src="/img/home/block6/bg1.png" alt="" class="bg1">
-      <img src="/img/home/block6/bg2.png" alt="" class="bg2">
-      <h2 class="section__title">Другие <span>услуги аренды</span> <br>в нашем магазине</h2>
+      <h2 class="section__title">Хотите сделать <span>ваш <br>отдых</span> незабываемым ?</h2>
       <div class="block6__flex flex-between">
         <CategoryCard
           v-for="category in categories"
