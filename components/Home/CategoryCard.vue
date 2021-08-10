@@ -1,9 +1,19 @@
 <template>
-  <NuxtLink class="category-card" :to="data.url">
-    <img :src="data.src" alt="">
-    <div class="title">{{data.title}}</div>
-    <div class="link"><span>подробнее</span></div>
-  </NuxtLink>
+  <div class="category-card">
+    <img :src="`${$store.getters['env/domain']}${data.thumb}`" alt="">
+    <div class="title" v-html="data.title"></div>
+    <p v-if="data.description" v-html="data.description"></p>
+    <ul v-if="data.categories.length > 0">
+      <li
+        v-for="category in data.categories"
+        :key="category.id"
+        class="category-link"
+      >
+        <NuxtLink :to="`/${category.base_category}/${category.slug}`"><span>{{category.name}}</span></NuxtLink>
+      </li>
+    </ul>
+    <NuxtLink :to="`/${data.base_category}`" class="link" v-if="data.show_link"><span>подробнее</span></NuxtLink>
+  </div>
 </template>
 
 <script>

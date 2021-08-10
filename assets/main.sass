@@ -241,11 +241,31 @@ section > .bg
 
 .block1
   padding-top: 65px
-  padding-bottom: 310px
+  padding-bottom: 280px
   .bg
     top: -114px
   h1
-    margin-bottom: 40px
+    margin-bottom: 35px
+  ul
+    display: grid
+    grid-template-columns: 280px auto
+    margin-bottom: 70px
+  li
+    padding-left: 16px
+    color: #7e8989
+    font-size: .89rem
+    line-height: 1.5
+    position: relative
+    margin-bottom: 5px
+    &::before
+      content: ''
+      width: 9px
+      height: 9px
+      border-radius: 50%
+      background-color: #01878c
+      position: absolute
+      top: 8px
+      left: 0
 
 h1
   font-family: 'berl'
@@ -549,7 +569,10 @@ p
     line-height: 1.25
     position: relative
     z-index: 2
-  .link
+  p
+    margin-top: 0
+    margin-bottom: .5rem
+  .link, .category-link
     color: #02979d
     font-size: 0.67rem
     position: relative
@@ -568,9 +591,25 @@ p
         width: 100%
         height: 1px
         background-color: #02979d
-  &:hover
-    .link span::after
-      opacity: 0
+    &:hover
+      span::after
+        opacity: 0
+  .category-link
+    padding-left: 10px
+    margin-bottom: .3rem
+    &::before
+      content: ''
+      width: 4px
+      height: 1px
+      background-color: #02979d
+      position: absolute
+      top: 7px
+      left: 0
+    span
+      font-weight: 600
+      text-transform: none
+      &::after
+        display: none
   &:nth-child(4), &:nth-child(5)
     width: 272px
 
@@ -1124,7 +1163,7 @@ textarea
   p
     margin-top: 0
   .table
-    width: 370px
+    width: 100%
   .col1
     color: #7e8989
     font-size: .89rem

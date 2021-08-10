@@ -23,7 +23,7 @@
           </client-only>
         </div>
         <div class="text-wrapper">
-          <div class="title">Подготовьтесь к своему походу вместе с командой</div>
+          <div class="title">Наш сервис предоставляет <br>самые <span>качественные услуги</span> в <br>сфере туризма города Сочи</div>
           <client-only>
             <VueSlickCarousel
               class="slider"
