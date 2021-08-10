@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import VueScrollTo from 'vue-scrollto'
 export default {
   name: "Pagination",
   props: ['baseCategory', 'subCategory'],
@@ -59,13 +60,14 @@ export default {
     }
   },
   methods: {
-    loadNewPage(page) {
+    async loadNewPage(page) {
       if (page !== this.$store.getters['products/currentPage']) {
-        this.$store.dispatch("products/getProducts", {
+        await this.$store.dispatch("products/getProducts", {
           baseCategory: this.baseCategory,
           subCategory: this.subCategory,
           page
         })
+        VueScrollTo.scrollTo('#shop-content')
       }
     }
   }

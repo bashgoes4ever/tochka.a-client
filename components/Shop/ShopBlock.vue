@@ -24,7 +24,7 @@
           <slot name="tabs"></slot>
         </VueSlickCarousel>
       </client-only>
-      <div class="flex-between align-start content-flex">
+      <div class="flex-between align-start content-flex" id="shop-content">
 
         <div v-if="$slots.filters" class="filters">
           <div class="title">
