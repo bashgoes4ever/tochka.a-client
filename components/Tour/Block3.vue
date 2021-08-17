@@ -5,7 +5,7 @@
       <client-only>
         <p v-html="data.how_to_find"></p>
       </client-only>
-      <ImageCarousel>
+      <ImageCarousel v-if="data.htfimgs.length > 0">
         <template v-slot:slides>
           <div
             class="img"

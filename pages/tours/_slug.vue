@@ -1,13 +1,19 @@
 <template>
   <div v-if="data">
     <section class="block1 tour-detail-block1">
-      <img :src="`${$store.getters['env/domain']}${data.detail_thumb}`" alt="" class="bg">
+      <img v-if="data.detail_thumb" :src="`${$store.getters['env/domain']}${data.detail_thumb}`" alt="" class="bg">
+      <client-only>
+        <img v-if="$vssWidth > 1170 && !data.detail_thumb" src="/img/tour/1/bg.png" alt="" class="bg">
+        <img v-if="$vssWidth <= 1170 && !data.detail_thumb" src="/img/tour/1/bg-m.png" alt="" class="bg">
+      </client-only>
       <div class="container">
         <h1 v-html="data.detail_name"></h1>
         <NuxtLink to="/" tag="button" class="btn">оставить заявку</NuxtLink>
         <div class="tour-info flex-between align-center">
           <div class="item">
-            <div class="title">Группа <span>от {{data.groups_from}} <br><span v-if="data.groups_to">до {{data.groups_to}}</span></span> человек</div>
+            <div class="title">Группа <span>от {{ data.groups_from }} <br><span
+              v-if="data.groups_to">до {{ data.groups_to }}</span></span> человек
+            </div>
             <img src="/img/tour/1/1.png" alt="">
           </div>
           <div class="item">

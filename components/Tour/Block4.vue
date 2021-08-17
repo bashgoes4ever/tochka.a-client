@@ -5,7 +5,7 @@
       <client-only>
         <p v-html="data.interesting_places"></p>
       </client-only>
-      <ImageCarousel>
+      <ImageCarousel v-if="data.itimgs.length > 0">
         <template v-slot:slides>
           <div
             class="img"

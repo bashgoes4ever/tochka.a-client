@@ -12,6 +12,9 @@
       <div class="container">
         <div class="basket-flex flex-between align-start">
           <div class="left">
+            <div class="head">Уважаемые клиенты! Все заказы у нас оформляются по 100% предоплате. Если у вас вдруг не
+              получилось воспользоваться услугой, то мы делаем возврат средств в размере 80% от оплаты.
+            </div>
             <div class="head">{{ productsString }} в корзине</div>
             <div class="products">
               <ProductInBasket
@@ -53,11 +56,9 @@
               range
               placeholder="Даты бронирования"
             ></date-picker>
-            <input type="text" placeholder="ФИО" v-model="form.name">
-            <input type="text" placeholder="Телефон" v-model="form.phone">
+            <input type="text" placeholder="Имя" v-model="form.name">
+            <input type="text" placeholder="Телефон*" v-model="form.phone">
             <input type="text" placeholder="Email" v-model="form.email">
-            <input type="text" placeholder="Город" v-model="form.city">
-            <input type="text" placeholder="Адрес доставки" v-model="form.address">
             <textarea placeholder="Комментарий к заказу" v-model="form.comment"></textarea>
             <div class="title payment-title">Выберите способ оплаты</div>
             <FilterCheckbox :group="payment" v-model="payment.bank_card">Банковская карта</FilterCheckbox>
@@ -108,13 +109,13 @@ export default {
     },
     totalPrice() {
       if (this.form.date) {
-        return this.$store.getters["basket/totalPrice"]*(this.form.date[1]-this.form.date[0])/1000/60/60/24
+        return this.$store.getters["basket/totalPrice"] * (this.form.date[1] - this.form.date[0]) / 1000 / 60 / 60 / 24
       }
       return null
     },
     totalDiscount() {
       if (this.form.date) {
-        return (this.$store.getters["basket/totalPrice"] + this.$store.getters["basket/totalDiscount"])*(this.form.date[1]-this.form.date[0])/1000/60/60/24
+        return (this.$store.getters["basket/totalPrice"] + this.$store.getters["basket/totalDiscount"]) * (this.form.date[1] - this.form.date[0]) / 1000 / 60 / 60 / 24
       }
       return null
     }

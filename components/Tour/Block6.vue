@@ -5,7 +5,7 @@
       <client-only>
         <p v-html="data.inventory_text"></p>
       </client-only>
-      <ImageCarousel :slides="3">
+      <ImageCarousel :slides="3" v-if="data.inventory_imgs.length > 0">
         <template v-slot:slides>
           <div
             class="img"
