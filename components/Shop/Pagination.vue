@@ -65,6 +65,7 @@ export default {
         await this.$store.dispatch("products/getProducts", {
           baseCategory: this.baseCategory,
           subCategory: this.subCategory,
+          filters: this.$store.getters['products/filters'].filter(f => f.value === true),
           page
         })
         VueScrollTo.scrollTo('#shop-content')
