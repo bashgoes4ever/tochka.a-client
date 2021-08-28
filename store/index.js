@@ -4,6 +4,7 @@ import products from './products/index'
 import basket from './basket/index'
 import notifications from './notifications/index'
 import menu from './menu/index'
+import popup from './popup/index'
 
 export const modules = {
   basket,
@@ -11,7 +12,8 @@ export const modules = {
   blog,
   products,
   notifications,
-  menu
+  menu,
+  popup
 }
 
 export const actions = {

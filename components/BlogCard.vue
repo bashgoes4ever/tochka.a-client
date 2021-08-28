@@ -4,8 +4,10 @@
       <img :src="`${$store.getters['env/domain']}${data.thumb}`" alt="">
     </div>
     <div class="title">{{ data.name }}</div>
-    <p v-html="data.description"></p>
-    <NuxtLink :to="url" tag="button" class="btn-secondary">Читать подробнее</NuxtLink>
+    <client-only>
+      <p v-html="data.description"></p>
+    </client-only>
+    <NuxtLink :to="url" tag="button" class="btn">Читать подробнее</NuxtLink>
   </div>
 </template>
 

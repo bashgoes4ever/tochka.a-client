@@ -12,9 +12,6 @@
       <div class="container">
         <div class="basket-flex flex-between align-start">
           <div class="left">
-            <div class="head">Уважаемые клиенты! Все заказы у нас оформляются по 100% предоплате. Если у вас вдруг не
-              получилось воспользоваться услугой, то мы делаем возврат средств в размере 80% от оплаты.
-            </div>
             <div class="head">{{ productsString }} в корзине</div>
             <div class="products">
               <ProductInBasket

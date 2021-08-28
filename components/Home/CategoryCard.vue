@@ -12,14 +12,19 @@
         <NuxtLink :to="`/${category.base_category}/${category.slug}`"><span>{{category.name}}</span></NuxtLink>
       </li>
     </ul>
-    <NuxtLink :to="`/${data.base_category}`" class="link" v-if="data.show_link"><span>подробнее</span></NuxtLink>
+    <NuxtLink :to="link" class="link" v-if="data.show_link"><span>подробнее</span></NuxtLink>
   </div>
 </template>
 
 <script>
 export default {
   name: "CategoryCard",
-  props: ['data']
+  props: ['data'],
+  computed: {
+    link() {
+      return this.data.custom_link ? `${this.data.custom_link}` : `/${this.data.base_category}`
+    }
+  }
 }
 </script>
 

@@ -8,7 +8,7 @@
       </client-only>
       <div class="container">
         <h1 v-html="data.detail_name"></h1>
-        <NuxtLink to="/" tag="button" class="btn">оставить заявку</NuxtLink>
+        <button class="btn" @click="showPopup">оставить заявку</button>
         <div class="tour-info flex-between align-center">
           <div class="item">
             <div class="title">Группа <span>от {{ data.groups_from }} <br><span
@@ -74,6 +74,12 @@ export default {
   data: () => ({
     data: null
   }),
+  methods: {
+    showPopup() {
+      this.$store.dispatch("popup/showPopup")
+      this.$store.dispatch("popup/setType", this.data.short_name)
+    }
+  },
   async fetch() {
     const {data} = await this.$axios({
       url: `api/v1/tour/${this.$route.params.slug}`,

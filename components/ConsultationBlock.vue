@@ -22,7 +22,7 @@
           <input type="text" placeholder="Введите ваше имя" v-model="name">
           <input type="text" placeholder="Введите ваш телефон" v-model="phone">
           <textarea placeholder="Комментарий к заявке" v-model="comment"></textarea>
-          <button class="btn">
+          <button class="btn" @click.prevent="apply">
             Подобрать инветарь
             <img v-if="hasIcon" src="/img/home/block8/1.png" alt="">
           </button>
@@ -42,6 +42,16 @@ export default {
     phone: '',
     comment: ''
   }),
+  methods: {
+    async apply() {
+      await this.$store.dispatch('popup/apply', {
+        name: this.name,
+        phone: this.phone,
+        description: this.comment,
+        form: this.type
+      })
+    }
+  },
   mixins: [NuxtSSRScreenSize.NuxtSSRScreenSizeMixin],
   props: ['type', 'hasIcon', 'background']
 }

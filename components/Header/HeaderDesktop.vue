@@ -3,7 +3,7 @@
     <div class="container">
       <div class="header-flex flex-between align-center">
         <div class="col flex-between align-center">
-          <div @mouseenter="isActive = true" @mouseleave="isActive = false" class="menu-item dropdown-header">
+          <div @click="isActive = !isActive" v-click-outside="hide" class="menu-item dropdown-header">
             <span class="link-name">
               прокат
               <svg width="10" height="6" viewBox="0 0 10 6" fill="none"
@@ -13,7 +13,7 @@
     fill="#20292D"/>
   </svg>
             </span>
-            <div class="dropdown-menu container">
+            <div v-if="isActive" class="dropdown-menu container">
               <div class="flex-between align-start">
                 <div class="dropdown-section">
                   <div class="title">Туристическое <br>оборудование</div>
@@ -110,13 +110,22 @@
 </template>
 
 <script>
+import ClickOutside from 'vue-click-outside'
 import BasketIcon from "~/components/Header/BasketIcon";
 export default {
   name: "HeaderDesktop",
+  directives: {
+    ClickOutside
+  },
   components: {BasketIcon},
   data: () => ({
     isActive: false
   }),
+  methods: {
+    hide() {
+      this.isActive = false
+    }
+  }
 }
 </script>
 
