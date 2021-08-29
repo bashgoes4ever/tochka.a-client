@@ -33,14 +33,7 @@
     <section class="tour-block5">
       <div class="container">
         <h2 class="section__title">Посмотрите видео отчёт с нашего <br>последнего похода</h2>
-        <a :href="data.video_url" target="_blank" class="video">
-          <img :src="`${$store.getters['env/domain']}${data.video_thumb}`" alt="">
-          <div class="play">
-            <svg width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0.166586 23.666L11.8333 11.9994L0.166588 0.332687L0.166586 23.666Z" fill="#02979D"/>
-            </svg>
-          </div>
-        </a>
+        <div class="video" v-html="data.video_url"></div>
       </div>
     </section>
     <Block6 :data="data"/>
