@@ -19,9 +19,9 @@ export const modules = {
 export const actions = {
   async nuxtServerInit({commit, dispatch}, {req}) {
     if (process.server) {
-      const protocol = req.connection.encrypted ? 'https' : 'http'
+      // const protocol = req.connection.encrypted ? 'https' : 'http'
       // commit("env/setDomain", `${protocol}://${req.headers.host}`)
-      commit("env/setDomain", `${protocol}://92.53.105.241`) //92.53.105.241
+      commit("env/setDomain", `https://tochka-a-sochi.ru`) //92.53.105.241
     }
   }
 }

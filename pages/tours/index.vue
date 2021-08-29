@@ -6,7 +6,7 @@
         <img v-if="$vssWidth <= 1170" src="/img/tour/bg-m.png" alt="" class="bg">
       </client-only>
       <div class="container">
-        <h1>Организуем авторские <br>туры в <span>горы красной <br>поляны и абхазии</span></h1>
+        <h1>Организуем авторские <br>туры в <span>горы Красной <br>Поляны и Абхазии</span></h1>
         <button v-scroll-to="'#tours'" class="btn">Подобрать тур</button>
       </div>
     </section>
@@ -23,11 +23,11 @@
       </div>
     </section>
     <ConsultationBlock has-icon="true" type="Подбор инвентаря (страница туров)">
-      <template v-slot:title>Не знаете <span>как правильно подобрать инвентарь</span> и не ошибиться при выборе ?
+      <template v-slot:title>Не знаете <span>какой подобрать тур</span>?
       </template>
-      <template v-slot:text>Оставьте заявку и опытный гид свяжется <br>с вами и разъяснит все нюансы и тонкости
+      <template v-slot:text>Оставьте заявку и опытный гид свяжется <br>с вами и разъяснит все нюансы
       </template>
-      <template v-slot:formTitle>Оставьте заявку на <br>подбор инвентаря</template>
+      <template v-slot:formTitle>Оставьте заявку на <br>подбор тура</template>
     </ConsultationBlock>
   </div>
 </template>

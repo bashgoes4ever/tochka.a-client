@@ -15,14 +15,30 @@
           v-if="$vssWidth <= 1170 && $store.getters['products/categories'].length > 0"
           class="tabs"
           :arrows="false"
-          :dots="false"
+          :dots="true"
           :draggable="true"
           :swipe="true"
           :variableWidth="true"
           :adaptiveHeight="true"
+          ref="slider"
         >
           <slot name="tabs"></slot>
         </VueSlickCarousel>
+
+        <div class="controls" v-if="$vssWidth <= 1170">
+          <div class="prev" @click="prev">
+            <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.5 1L1.5 8L8.5 15" stroke="#858F9A" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="next" @click="next">
+            <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.5 1L8.5 8L1.5 15" stroke="#858F9A" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
       </client-only>
       <div class="flex-between align-start content-flex" id="shop-content">
 
@@ -63,6 +79,14 @@ export default {
   name: "ShopBlock",
   components: {VueSlickCarousel},
   mixins: [NuxtSSRScreenSize.NuxtSSRScreenSizeMixin],
+  methods: {
+    prev() {
+      this.$refs.slider.prev()
+    },
+    next() {
+      this.$refs.slider.next()
+    }
+  },
 }
 </script>
 

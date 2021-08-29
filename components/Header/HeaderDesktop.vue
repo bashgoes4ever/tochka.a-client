@@ -61,7 +61,10 @@
                       <NuxtLink to="/aquabike">Водные скутеры</NuxtLink>
                     </li>
                     <li>
-                      <NuxtLink to="/">Дайвинг</NuxtLink>
+                      <NuxtLink to="/diving">Дайвинг</NuxtLink>
+                    </li>
+                    <li>
+                      <NuxtLink to="/sup">Сапы</NuxtLink>
                     </li>
                   </ul>
                   <img src="/img/menu/3.png" alt="" class="bg">

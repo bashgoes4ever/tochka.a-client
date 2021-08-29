@@ -2,7 +2,9 @@
   <div>
     <slot name="block1"></slot>
     <ShopBlock id="shop">
-      <template v-slot:title><slot name="title"></slot></template>
+      <template v-slot:title>
+        <slot name="title"></slot>
+      </template>
 
       <template v-if="$store.getters['products/categories'].length > 0" v-slot:tabs>
         <NuxtLink
@@ -42,8 +44,12 @@
         />
       </template>
 
-      <template v-slot:bottom-title><slot name="bottom-title"></slot></template>
-      <template v-slot:bottom-text><slot name="bottom-text"></slot></template>
+      <template v-slot:bottom-title>
+        <slot name="bottom-title"></slot>
+      </template>
+      <template v-slot:bottom-text>
+        <slot name="bottom-text"></slot>
+      </template>
     </ShopBlock>
     <slot name="bottom"></slot>
   </div>
