@@ -76,9 +76,9 @@
       <div class="col">
         <div class="head">Контакты</div>
         <ul>
-          <li>8 800 2000 600</li>
-          <li>Berudivan@mail.</li>
-          <li>10:00 - 20:00 <br>без выходных</li>
+          <li>8 938 4451 613</li>
+          <li>tochka_a_sochi@mail.ru</li>
+          <li>7:00 - 23:00 <br>без выходных</li>
           <li class="action">Написать нам</li>
         </ul>
       </div>

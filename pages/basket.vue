@@ -55,7 +55,7 @@
             ></date-picker>
             <input type="text" placeholder="Имя" v-model="form.name">
             <input type="text" placeholder="Телефон*" v-model="form.phone">
-            <input type="text" placeholder="Email" v-model="form.email">
+            <input type="text" placeholder="Email*" v-model="form.email">
             <textarea placeholder="Комментарий к заказу" v-model="form.comment"></textarea>
             <div class="title payment-title">Выберите способ оплаты</div>
             <FilterCheckbox :group="payment" v-model="payment.bank_card">Банковская карта</FilterCheckbox>

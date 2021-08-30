@@ -68,7 +68,7 @@
           </div>
           <img src="/img/home/block3/3.png" alt="">
         </NuxtLink>
-        <NuxtLink class="item" to="/">
+        <NuxtLink class="item" to="/inventory/vse-dlya-kempinga">
           <div class="title">
             Кемпинг
             <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
