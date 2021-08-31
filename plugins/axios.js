@@ -6,7 +6,7 @@ export default function ({$axios, store, req, $cookies}) {
   // `${protocol}://${req.headers.host}`
   $axios.defaults.xsrfCookieName = 'csrftoken'
   $axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
-  $axios.defaults.baseURL = `http://tochka-a-sochi.ru` //92.53.105.241
+  $axios.defaults.baseURL = `https://tochka-a-sochi.ru` //92.53.105.241
   $axios.defaults.withCredentials = true
 
   if (process.client) {
