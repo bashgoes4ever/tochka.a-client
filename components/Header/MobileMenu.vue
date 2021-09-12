@@ -44,7 +44,7 @@
 <path fill-rule="evenodd" clip-rule="evenodd" d="M10.017 1.66675C5.17533 1.66675 1.66699 5.62185 1.66699 10.0126C1.66699 11.4147 2.07533 12.8577 2.79199 14.1763C2.92533 14.3942 2.94199 14.6688 2.85033 14.9283L2.29199 16.7978C2.16699 17.2485 2.55033 17.5815 2.97533 17.4479L4.65866 16.948C5.11699 16.7978 5.47533 16.9889 5.90033 17.2485C7.11699 17.9654 8.63366 18.3334 10.0003 18.3334C14.1337 18.3334 18.3337 15.137 18.3337 9.98756C18.3337 5.54674 14.7503 1.66675 10.017 1.66675Z" stroke="#20292D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
       </NuxtLink>
-      <NuxtLink to="/" class="menu-item flex-between align-center">
+      <NuxtLink to="/gallery/raspisanie" class="menu-item flex-between align-center">
         <span>Расписание</span>
         <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1.57715 7.83713H16.4304" stroke="#20292D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

@@ -82,7 +82,7 @@
             <NuxtLink class="link-name" to="/reviews">Отзывы</NuxtLink>
           </div>
           <div class="menu-item">
-            <NuxtLink class="link-name" to="/">Расписание</NuxtLink>
+            <NuxtLink class="link-name" to="/gallery/raspisanie">Расписание</NuxtLink>
           </div>
         </div>
         <NuxtLink class="logo" to="/">
