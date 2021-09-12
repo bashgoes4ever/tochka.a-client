@@ -11,6 +11,12 @@ export default {
   setType({commit}, payload) {
     commit('setType', payload)
   },
+  enableLoading({commit}) {
+    commit('enableLoading')
+  },
+  disableLoading({commit}) {
+    commit('disableLoading')
+  },
   async apply({commit}, data) {
     await this.$axios({
       url: '/api/v1/application/',

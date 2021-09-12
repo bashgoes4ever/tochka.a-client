@@ -62,6 +62,8 @@
             <FilterCheckbox :group="payment" v-model="payment.cash_courier">Наличными курьеру</FilterCheckbox>
             <FilterCheckbox :group="payment" v-model="payment.cash_shop">Наличными в магазине</FilterCheckbox>
             <button @click="createOrder" class="btn">оформить заказ</button>
+            <div class="form-postscript">Нажимая на кнопку выше, вы даете свое согласие на <a href="/static/personal-data.pdf" target="_blank">обработку
+              персональных данных</a><br><a href="/static/politics.pdf">Политика обработки персональных данных</a></div>
           </form>
         </div>
       </div>
@@ -124,12 +126,20 @@ export default {
     },
     async createOrder(e) {
       e.preventDefault()
-      await this.$store.dispatch("basket/createOrder", {
+      const payment = Object.keys(this.payment).find(k => this.payment[k] === true)
+      await this.$store.dispatch('popup/enableLoading')
+      const data = await this.$store.dispatch("basket/createOrder", {
         form: this.form,
-        payment: Object.keys(this.payment).find(k => this.payment[k] === true)
+        payment
       })
-      await this.$store.dispatch('notifications/createNotification', 'Заказ успешно создан!')
-      await this.$router.push('/')
+      if ('payment_data' in data) {
+        const url = data['payment_data']['formUrl']
+        window.location.href = url
+      } else {
+        await this.$store.dispatch('popup/disableLoading')
+        await this.$store.dispatch('notifications/createNotification', 'Заказ успешно создан!')
+        await this.$router.push('/')
+      }
     }
   },
   data: () => ({

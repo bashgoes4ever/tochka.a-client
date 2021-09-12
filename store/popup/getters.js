@@ -2,5 +2,6 @@ export default {
   popup: (state) => state.popup,
   thank: (state) => state.thank,
   showLayer: (state) => state.popup || state.thank,
-  type: (state) => state.type
+  type: (state) => state.type,
+  isLoading: (state) => state.loading
 }

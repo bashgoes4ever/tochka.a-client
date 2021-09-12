@@ -12,5 +12,11 @@ export default {
   },
   setType(state, type) {
     state.type = type
+  },
+  enableLoading(state) {
+    state.loading = true
+  },
+  disableLoading(state) {
+    state.loading = false
   }
 }

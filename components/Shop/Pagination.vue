@@ -70,6 +70,30 @@ export default {
         })
         VueScrollTo.scrollTo('#shop-content')
       }
+      this.updateQuery()
+    },
+    addParamsToLocation(params) {
+      const query = []
+      for (const param of params) {
+        const key = Object.keys(param)[0]
+        query.push(`${key}=${param[key]}`)
+      }
+      history.pushState(
+        {},
+        null,
+        this.$route.path +
+        '?' + query.join('&')
+      )
+    },
+    updateQuery() {
+      const query = []
+      if (this.$store.getters["products/filters"] && this.$store.getters['products/filters'].filter(f => f.value === true).length > 0) {
+        for (let filter of this.$store.getters['products/filters'].filter(f => f.value === true)) {
+          query.push({filters: filter.id})
+        }
+      }
+      query.push({page: this.$store.getters["products/currentPage"]})
+      this.addParamsToLocation(query)
     }
   }
 }

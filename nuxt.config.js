@@ -37,7 +37,21 @@ export default {
   modules: [
     "@nuxtjs/axios",
     'cookie-universal-nuxt',
-    'vue-scrollto/nuxt'
+    'vue-scrollto/nuxt',
+    [
+      '@nuxtjs/yandex-metrika',
+      {
+        id: '84804094',
+        webvisor: true,
+        clickmap:true,
+        // useCDN:false,
+        trackLinks:true,
+        accurateTrackBounce:true,
+      }
+    ],
+    ['@nuxtjs/google-analytics', {
+      id: 'G-K3NENSJMNQ'
+    }]
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

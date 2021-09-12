@@ -15,7 +15,7 @@ export default {
     state.currentPage = payload
   },
   setFilterCheckbox(state, id) {
-    const index = state.filters.findIndex(i => i.id === id)
+    const index = state.filters.findIndex(i => i.id == id)
     state.filters[index].value = !state.filters[index].value
   }
 }

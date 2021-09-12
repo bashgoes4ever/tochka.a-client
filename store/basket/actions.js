@@ -53,7 +53,7 @@ export default {
     const from = new Date(data.form.date[0])
     const to = new Date(data.form.date[1])
 
-    await this.$axios({
+    const response = await this.$axios({
       url: '/api/v1/order/',
       method: 'POST',
       data: {
@@ -68,6 +68,8 @@ export default {
         payment_type: data.payment
       }
     })
+
+    return response.data
 
     commit('clearBasket')
     dispatch('getBasket')

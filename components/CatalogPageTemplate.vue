@@ -69,17 +69,42 @@ export default {
   components: {ShopBlock, FilterCheckbox, ProductCard, ConsultationBlock, Pagination},
   mixins: [NuxtSSRScreenSize.NuxtSSRScreenSizeMixin],
   async fetch() {
+    const filters = Array.isArray(this.$route.query.filters) ? this.$route.query.filters : this.$route.query.filters && [this.$route.query.filters]
+    const page = this.$route.query.page
+
     await this.$store.dispatch("products/getCategories", this.category)
-    await this.$store.dispatch("products/getProducts", {
-      baseCategory: this.category,
-      subCategory: this.$route.params.slug || null
-    })
     await this.$store.dispatch("products/getFilters", {
       baseCategory: this.category,
-      subCategory: this.$route.params.slug || null
+      subCategory: this.$route.params.slug || null,
+    })
+
+    if (filters?.length > 0) {
+      for (const filter of filters) {
+        await this.$store.dispatch('products/setFilterCheckbox', filter)
+      }
+    }
+
+    await this.$store.dispatch("products/getProducts", {
+      baseCategory: this.category,
+      subCategory: this.$route.params.slug || null,
+      filters: filters?.map(f => ({id: f})),
+      page
     })
   },
   methods: {
+    addParamsToLocation(params) {
+      const query = []
+      for (const param of params) {
+        const key = Object.keys(param)[0]
+        query.push(`${key}=${param[key]}`)
+      }
+      history.pushState(
+        {},
+        null,
+        this.$route.path +
+        '?' + query.join('&')
+      )
+    },
     updateFilter(filter) {
       this.$store.dispatch("products/setFilterCheckbox", filter.id)
       this.$store.dispatch("products/getProducts", {
@@ -87,6 +112,18 @@ export default {
         subCategory: this.$route.params.slug || null,
         filters: this.$store.getters['products/filters'].filter(f => f.value === true)
       })
+
+      this.updateQuery()
+    },
+    updateQuery() {
+      const query = []
+      if (this.$store.getters["products/filters"] && this.$store.getters['products/filters'].filter(f => f.value === true).length > 0) {
+        for (let filter of this.$store.getters['products/filters'].filter(f => f.value === true)) {
+          query.push({filters: filter.id})
+        }
+      }
+      query.push({page: this.$store.getters["products/currentPage"]})
+      this.addParamsToLocation(query)
     }
   }
 }

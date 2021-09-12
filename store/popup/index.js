@@ -7,7 +7,8 @@ export default {
     return {
       popup: false,
       thank: false,
-      type: 'Заявка'
+      type: 'Заявка',
+      loading: false
     }
   },
   mutations,

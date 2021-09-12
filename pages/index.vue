@@ -60,5 +60,10 @@ export default {
   layout: 'default',
   components: {Block2, Block3, Block4, Block6, Block7, ConsultationBlock},
   mixins: [NuxtSSRScreenSize.NuxtSSRScreenSizeMixin],
+  async mounted() {
+    if (this.$route.query.orderId) {
+        await this.$store.dispatch('notifications/createNotification', 'Заказ успешно создан!')
+    }
+  }
 }
 </script>
