@@ -73,6 +73,14 @@
                   <p>ИП Дубченко Антон Борисович <br>ИИН: 262800685953 <br>ОГРНИП: 321265100066084</p>
                 </div>
               </div>
+              <div class="contacts-item flex-start align-start">
+                <div class="icon">
+                </div>
+                <div class="contacts-item__info">
+                  <div class="head">Юридический адрес</div>
+                  <p>г. Сочи Адлерский район <br>улица Каспийская 73</p>
+                </div>
+              </div>
             </div>
 
             <div class="contacts-socials flex-start">

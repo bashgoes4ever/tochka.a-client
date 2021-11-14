@@ -19,7 +19,7 @@
       type="Дайвинг"
       background="/img/diving/bg2.png"
     >
-      <template v-slot:title>Не знаете <span>как правильно подобрать</span> мото или вело транспорт ?</template>
+      <template v-slot:title>Остались вопросы ?</template>
       <template v-slot:text>Оставьте заявку и опытный менеджер <br>свяжется с вами и разъяснит все <br>нюансы и
         тонкости
       </template>
