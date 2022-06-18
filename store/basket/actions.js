@@ -11,11 +11,8 @@ export default {
       url: `/api/v1/basket/product/${product.id}`,
       method: 'POST'
     })
-    commit('addProductToBasket', {
-      product,
-      quantity: data.quantity,
-      id: data.id
-    })
+
+    commit('setBasketData', data.products)
   },
   async removeProductFromBasket({commit}, productId) {
     await this.$axios({
@@ -70,13 +67,10 @@ export default {
     })
 
     return response.data
-
-    commit('clearBasket')
-    dispatch('getBasket')
   }
 }
 
 function formatDate(date) {
   const str = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString()
-  return str.slice(0, 10)
+  return str
 }

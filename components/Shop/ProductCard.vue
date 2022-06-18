@@ -7,7 +7,7 @@
   <h5 class="name">{{data.name}}</h5>
   <div class="price flex-center align-end">
     <span class="price-text">{{data.price}} руб.</span>
-    <span class="price-duration">цена за сутки</span>
+    <span class="price-duration">цена за {{getRateString}}</span>
   </div>
   <button v-if="!isInBasket" class="btn basket-btn" @click="addToBasket">
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,6 +29,9 @@ export default {
     isInBasket() {
       return this.$store.getters["basket/basket"].some(item => item.product.id === this.data.id)
     },
+    getRateString() {
+      return this.data.hour_rate ? 'час' : 'сутки'
+    }
   },
   methods: {
     addToBasket() {

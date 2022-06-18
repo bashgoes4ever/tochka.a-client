@@ -40,7 +40,7 @@
             <div class="title">Оформить заказ</div>
             <date-picker
               valueType="timestamp"
-              @change="$store.dispatch('basket/checkAvailability', {
+              @change="form.date && $store.dispatch('basket/checkAvailability', {
                 from: form.date[0],
                 to: form.date[1]
               })"
@@ -52,6 +52,28 @@
               type="date"
               range
               placeholder="Даты бронирования"
+              v-if="!$store.getters['basket/hourRate']"
+            ></date-picker>
+            <date-picker
+              valueType="timestamp"
+              @change="form.date && $store.dispatch('basket/checkAvailability', {
+                from: form.date[0],
+                to: form.date[1]
+              })"
+              :time-picker-options="{
+                start: '07:00',
+                step: '01:00',
+                end: '23:00',
+              }"
+              v-model="form.date"
+              input-class="date-picker"
+              :disabled-date="disableDate"
+              format="DD MMMM HH:mm"
+              type="datetime"
+              range
+              range-separator=" - "
+              placeholder="Часы бронирования"
+              v-if="$store.getters['basket/hourRate']"
             ></date-picker>
             <input type="text" placeholder="Имя" v-model="form.name">
             <input type="text" placeholder="Телефон*" v-model="form.phone">
@@ -312,12 +334,18 @@ export default {
     },
     totalPrice() {
       if (this.form.date) {
+        if (this.$store.getters['basket/hourRate']) {
+          return this.$store.getters["basket/totalPrice"] * (this.form.date[1] - this.form.date[0]) / 1000 / 60 / 60
+        }
         return this.$store.getters["basket/totalPrice"] * (this.form.date[1] - this.form.date[0]) / 1000 / 60 / 60 / 24
       }
       return null
     },
     totalDiscount() {
       if (this.form.date) {
+        if (this.$store.getters['basket/hourRate']) {
+          return (this.$store.getters["basket/totalPrice"] * this.$store.getters["basket/totalDiscount"]) * (this.form.date[1] - this.form.date[0]) / 1000 / 60 / 60
+        }
         return (this.$store.getters["basket/totalPrice"] + this.$store.getters["basket/totalDiscount"]) * (this.form.date[1] - this.form.date[0]) / 1000 / 60 / 60 / 24
       }
       return null
@@ -341,6 +369,7 @@ export default {
         window.location.href = url
       } else {
         await this.$store.dispatch('popup/disableLoading')
+        await this.$store.dispatch('basket/getBasket')
         await this.$store.dispatch('notifications/createNotification', 'Заказ успешно создан!')
         await this.$router.push('/')
       }

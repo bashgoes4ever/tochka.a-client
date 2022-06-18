@@ -21,7 +21,7 @@ export const actions = {
     if (process.server) {
       // const protocol = req.connection.encrypted ? 'https' : 'http'
       // commit("env/setDomain", `${protocol}://${req.headers.host}`)
-      commit("env/setDomain", `https://tochka-a-sochi.ru`) //92.53.105.241
+      commit("env/setDomain", `https://tochka-a-sochi.ru`) // http://localhost:1234
     }
   }
 }

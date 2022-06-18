@@ -72,6 +72,7 @@
             <div class="price-wrapper flex-start align-end">
               <div class="price">{{ product.price }} ₽</div>
               <div class="old-price" v-if="product.old_price">{{ product.old_price }} ₽</div>
+              <div class="rate"> за {{getRateString}}</div>
             </div>
             <button v-if="!isInBasket" class="btn" @click="addToBasket">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -170,6 +171,9 @@ export default {
     isInBasket() {
       return this.$store.getters["basket/basket"].some(item => item.product.id === this.product.id)
     },
+    getRateString() {
+      return this.product?.hour_rate ? 'час' : 'сутки'
+    }
   },
   async fetch() {
     const {data} = await this.$axios({
